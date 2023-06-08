@@ -77,15 +77,3 @@ class GetPicFunction:
         Picture=cv2.imread("./systemdata/img/systemimg/home.PNG")
         lox,loy = self.PicDet(Picture)
         pyautogui.click(lox+50,loy+55)
-
-    def HomepageCheck(self):
-        #確認進場前為主畫面
-        Picture = cv2.imread("./systemdata/img/systemimg/Top.PNG")
-        if self.PicDetTF(Picture) == False:
-            self.GoHome()
-            #連續偵測是否已經轉到畫面            
-            while True:
-                if self.PicDetTF(Picture) == True:
-                    break
-                else:
-                    time.sleep(0.5)  # 等待0.5秒后再次检测

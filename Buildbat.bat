@@ -8,10 +8,6 @@ cd ..
 cd systemdata\icon
 pyrcc5.exe -o ICON.py .\ICON.qrc
 cd ..
-cd img\Arcarum
-pyrcc5.exe -o ARCARUM.py .\ARCARUM.qrc
-cd ..
-cd ..
 cd ..
 python.exe -B .\main.py
 

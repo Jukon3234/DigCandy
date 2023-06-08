@@ -17,15 +17,6 @@ import pyperclip
 import win32gui
 import numpy as np
 
-
-#轉世頁面內容
-#1.需要向下尋找轉世的item
-#2.要找到指定的關卡item
-#3.進入關卡後分成3頁面 左中右 透過左右按鈕切畫面
-#4.怪物以轉世關卡分類
-#5.隊伍可以指定X/Y方法，或是額外不選擇，僅使用前一場使用的隊伍
-#6.需要FA直到關卡完成。若中途失敗可選擇是否使用大紅復活，復活後執行reload auto
-
 class RunFunction:
     #===================================debug
     def debugLog(self):
@@ -36,51 +27,151 @@ class RunFunction:
     #====================================function
     def RunFGscrept(self):
         if Fun.RunFlag == False:
+            self.Info_broswer.setText("腳本啟動")
             Fun.RunFlag = True
             Fun.StopFunction = False
             x = GetPicFunction()
-            x.HomepageCheck()
+            self.Info_broswer.setText("點擊遊戲視窗")
+            pyautogui.click(100,100)
             #找到主畫面時
             if Fun.Function1FightCount == 0:
                 #無限迴圈
-                def GBFloop():
+                def Digloop():
+                    self.Info_broswer.setText("進入迴圈")
                     while Fun.StopFunction == False:
                         try:
-                            print(f"test run run run: 無上限") 
-                            time.sleep(1)
-                            print("stopfuntion=",Fun.StopFunction)
-                            print("Function1FightCount=",Fun.Function1FightCount)
+                            self.Info_broswer.setText("1")
+                            pyautogui.hotkey('ctrl')
+                            if Fun.StopFunction:
+                                Fun.RunFlag = False
+                                self.Info_broswer.setText("中止")
+                                break
+                            self.Info_broswer.setText("2")
+                            pyautogui.hotkey('down')
+                            if Fun.StopFunction:
+                                Fun.RunFlag = False
+                                self.Info_broswer.setText("中止")
+                                break
+                            self.Info_broswer.setText("3")
+                            pyautogui.hotkey('ctrl')
+                            if Fun.StopFunction:
+                                Fun.RunFlag = False
+                                self.Info_broswer.setText("中止")
+                                break
+                            self.Info_broswer.setText("4")
+                            pyautogui.hotkey('ctrl')
+                            if Fun.StopFunction:
+                                Fun.RunFlag = False
+                                self.Info_broswer.setText("中止")
+                                break
+                            self.Info_broswer.setText("5")
+                            pyautogui.hotkey('ctrl')
+                            if Fun.StopFunction:
+                                Fun.RunFlag = False
+                                self.Info_broswer.setText("中止")
+                                break
+                            self.Info_broswer.setText("6")
+                            pyautogui.hotkey('down')
+                            if Fun.StopFunction:
+                                Fun.RunFlag = False
+                                self.Info_broswer.setText("中止")
+                                break
+                            self.Info_broswer.setText("7")
+                            pyautogui.hotkey('down')
+                            if Fun.StopFunction:
+                                Fun.RunFlag = False
+                                self.Info_broswer.setText("中止")
+                                break
+                            self.Info_broswer.setText("8")
+                            pyautogui.hotkey('ctrl')
+                            if Fun.StopFunction:
+                                Fun.RunFlag = False
+                                self.Info_broswer.setText("中止")
+                                break
+                            self.Info_broswer.setText("9")
+                            pyautogui.hotkey('ctrl')
+                            if Fun.StopFunction:
+                                Fun.RunFlag = False
+                                self.Info_broswer.setText("中止")
+                                break
+                            self.Info_broswer.setText("10")
                             Fun.RunFlag = False
+                            self.Info_broswer.setText("結束")
                         except:
                             print("Function fail")
                             Fun.RunFlag = False
+                            self.Info_broswer.setText("迴圈出錯")
             else:
                 #有限迴圈
-                def GBFloop():
+                def Digloop():
                     for i in range(Fun.Function1FightCount):
                         C=i+1
-                        TC=Fun.Function1FightCount                            
-                        print(f"test run run run: {C}/{TC}")                        
-                                
-                        #找到轉世                        
-                        Picture = cv2.imread("./systemdata/img/systemimg/Arcarum.PNG")                                                
-                        x.ClickPIC(Picture)
-                        #等畫面看到title
-                        Picture = cv2.imread("./systemdata/img/systemimg/Title.PNG")
-                        x.LoopWait(Picture)
-                        #找到關卡
-                        Picture = Fun.ReadArcarumPIC
-                        x.ClickPIC(Picture)
+                        TC=Fun.Function1FightCount
                         
-                        #self.GoHome()
-                        time.sleep(1)
-                        print("stopfunction=",Fun.StopFunction)
-                        print("Function1FightCount=",Fun.Function1FightCount)
+                        self.Info_broswer.setText("1")
+                        pyautogui.hotkey('ctrl')
                         if Fun.StopFunction:
+                            Fun.RunFlag = False
+                            self.Info_broswer.setText("中止")
+                            break
+                        self.Info_broswer.setText("2")
+                        pyautogui.hotkey('down')
+                        if Fun.StopFunction:
+                            Fun.RunFlag = False
+                            self.Info_broswer.setText("中止")
+                            break
+                        self.Info_broswer.setText("3")
+                        pyautogui.hotkey('ctrl')
+                        if Fun.StopFunction:
+                            Fun.RunFlag = False
+                            self.Info_broswer.setText("中止")
+                            break
+                        self.Info_broswer.setText("4")
+                        pyautogui.hotkey('ctrl')
+                        if Fun.StopFunction:
+                            Fun.RunFlag = False
+                            self.Info_broswer.setText("中止")
+                            break
+                        self.Info_broswer.setText("5")
+                        pyautogui.hotkey('ctrl')
+                        if Fun.StopFunction:
+                            Fun.RunFlag = False
+                            self.Info_broswer.setText("中止")
+                            break
+                        self.Info_broswer.setText("6")
+                        pyautogui.hotkey('down')
+                        if Fun.StopFunction:
+                            Fun.RunFlag = False
+                            self.Info_broswer.setText("中止")
+                            break
+                        self.Info_broswer.setText("7")
+                        pyautogui.hotkey('down')
+                        if Fun.StopFunction:
+                            Fun.RunFlag = False
+                            self.Info_broswer.setText("中止")
+                            break
+                        self.Info_broswer.setText("8")
+                        pyautogui.hotkey('ctrl')
+                        if Fun.StopFunction:
+                            Fun.RunFlag = False
+                            self.Info_broswer.setText("中止")
+                            break
+                        self.Info_broswer.setText("9")
+                        pyautogui.hotkey('ctrl')
+                        if Fun.StopFunction:
+                            Fun.RunFlag = False
+                            self.Info_broswer.setText("中止")
+                            break
+                        self.Info_broswer.setText("10")
+                        Fun.RunFlag = False
+                        self.Info_broswer.setText("結束")
+                        time.sleep(1)
+                        if Fun.StopFunction:
+                            self.Info_broswer.setText("中止")
                             break
                     Fun.RunFlag = False
         
             global functionthread
-            functionthread = Thread(target=GBFloop)
+            functionthread = Thread(target=Digloop)
             functionthread.setDaemon(True)
             functionthread.start()
