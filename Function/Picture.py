@@ -16,6 +16,11 @@ import numpy as np
     
     
 class GetPicFunction:
+
+    def getpoc(self):
+        window_rect = win32gui.GetWindowRect(Fun.WindowsHandle)
+        x, y, width, height = window_rect
+        return x, y
     
     def PicDet(self,Picture):#檢測圖位置
         window_rect = win32gui.GetWindowRect(Fun.WindowsHandle)

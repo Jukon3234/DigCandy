@@ -50,7 +50,7 @@ class MainPageWindow(QtWidgets.QMainWindow,Ui_GBF_MAIN):
         Fun.DCBOT_Token = savedata['Bot']['TOKEN']
         Fun.DCBOT_ChannalID = savedata['Bot']['Channal_ID']
         self.Times_spinBox_2.setValue(savedata['function']['FightCount'])
-        self.SaveText("")
+        self.SaveText.setText(" ")
 
 
     def initbuttonUI(self):#按鈕設定
@@ -61,7 +61,6 @@ class MainPageWindow(QtWidgets.QMainWindow,Ui_GBF_MAIN):
         self.AllstopButton.clicked.connect(self.showDialog)
         self.SetButton.clicked.connect(self.showDialog)
         self.Times_spinBox_2.valueChanged.connect(self.showDialog)
-        self.PositionButton.clicked.connect(self.showDialog)
         self.FRWidge.clicked.connect(self.showDialog)
         #self.DebugButton.clicked.connect(self.showDialog)
     
@@ -75,10 +74,10 @@ class MainPageWindow(QtWidgets.QMainWindow,Ui_GBF_MAIN):
             self.Info_broswer.setText("腳本執行中")
             x=RunFunction()
             x.RunFGscrept()
-        elif sender == self.FuncStopButton or sender == self.AllstopButton or event.key() == Qt.Key_Escape:
+        elif sender == self.FuncStopButton or sender == self.AllstopButton:
             Fun.StopFunction = True
             self.Info_broswer.clear()
-            Mbox('緊急中止', '中止', 0)
+            self.Mbox('緊急中止', '中止', 0)
         elif sender == self.SetButton:
             self.SaveFile()
         elif sender == self.Times_spinBox_2:
@@ -99,6 +98,15 @@ class MainPageWindow(QtWidgets.QMainWindow,Ui_GBF_MAIN):
         #    self.SetScreenfuntion()
         #    x=Debugfunction()
         #    x.debugLog()
+
+    def Mbox(self, title, text, style):
+        return windll.user32.MessageBoxW(0, text, title, style)
+
+    def keyPressEvent(self, event):
+        if event.key() == Qt.Key_Escape:
+            Fun.StopFunction = True
+            self.Info_broswer.clear()
+            self.Mbox('緊急中止', '中止', 0)
 
     def settingtext(self):
         Fun.Function1FightCount = self.Times_spinBox_2.value()

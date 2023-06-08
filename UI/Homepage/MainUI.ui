@@ -150,7 +150,7 @@
                </font>
               </property>
               <property name="text">
-               <string>星爆螞蟻礦工</string>
+               <string>星爆螞蟻礦工 V0.0.1</string>
               </property>
               <property name="alignment">
                <set>Qt::AlignCenter</set>
@@ -218,7 +218,7 @@
                  <property name="spacing">
                   <number>3</number>
                  </property>
-                 <item row="0" column="0" colspan="4" alignment="Qt::AlignTop">
+                 <item row="0" column="0" colspan="3" alignment="Qt::AlignTop">
                   <widget class="QGroupBox" name="groupBox_4">
                    <property name="sizePolicy">
                     <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
@@ -353,6 +353,25 @@
                    </layout>
                   </widget>
                  </item>
+                 <item row="2" column="1">
+                  <widget class="QPushButton" name="FRWidge">
+                   <property name="sizePolicy">
+                    <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                     <horstretch>0</horstretch>
+                     <verstretch>0</verstretch>
+                    </sizepolicy>
+                   </property>
+                   <property name="maximumSize">
+                    <size>
+                     <width>100</width>
+                     <height>23</height>
+                    </size>
+                   </property>
+                   <property name="text">
+                    <string>調整視窗大小</string>
+                   </property>
+                  </widget>
+                 </item>
                  <item row="2" column="0">
                   <widget class="QPushButton" name="AllstopButton">
                    <property name="sizePolicy">
@@ -403,44 +422,6 @@
                    <attribute name="buttonGroup">
                     <string notr="true">buttonGroup</string>
                    </attribute>
-                  </widget>
-                 </item>
-                 <item row="2" column="1">
-                  <widget class="QPushButton" name="PositionButton">
-                   <property name="sizePolicy">
-                    <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-                     <horstretch>0</horstretch>
-                     <verstretch>0</verstretch>
-                    </sizepolicy>
-                   </property>
-                   <property name="maximumSize">
-                    <size>
-                     <width>100</width>
-                     <height>23</height>
-                    </size>
-                   </property>
-                   <property name="text">
-                    <string>環境設定</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item row="2" column="2">
-                  <widget class="QPushButton" name="FRWidge">
-                   <property name="sizePolicy">
-                    <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-                     <horstretch>0</horstretch>
-                     <verstretch>0</verstretch>
-                    </sizepolicy>
-                   </property>
-                   <property name="maximumSize">
-                    <size>
-                     <width>100</width>
-                     <height>23</height>
-                    </size>
-                   </property>
-                   <property name="text">
-                    <string>調整視窗大小</string>
-                   </property>
                   </widget>
                  </item>
                 </layout>
