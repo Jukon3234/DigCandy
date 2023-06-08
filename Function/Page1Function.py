@@ -75,6 +75,10 @@ class RunFunction:
                             if Fun.StopFunction:
                                 Fun.RunFlag = False
                                 break
+                            pyautogui.hotkey('ctrl')
+                            if Fun.StopFunction:
+                                Fun.RunFlag = False
+                                break
                             Fun.RunFlag = False
                         except:
                             print("Function fail")
@@ -122,6 +126,10 @@ class RunFunction:
                         if Fun.StopFunction:
                             Fun.RunFlag = False
                             break
+                        pyautogui.hotkey('ctrl')
+                            if Fun.StopFunction:
+                                Fun.RunFlag = False
+                                break
                         Fun.RunFlag = False
                         time.sleep(1)
                         if Fun.StopFunction:
