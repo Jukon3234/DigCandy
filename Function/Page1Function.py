@@ -11,6 +11,7 @@ import sys
 import time
 import Function.Foundation as Fun
 import pyautogui
+import random
 
 class RunFunction:
     #===================================debug
@@ -29,18 +30,19 @@ class RunFunction:
                     while Fun.StopFunction == False:
                         
                         for i in range (1,7):
+                            if Fun.RandomX >> 0 or Fun.RandomY >> 0:
+                                random_intX = random.randint(Fun.NRandomX,Fun.RandomX)
+                                random_intY = random.randint(Fun.NRandomY,Fun.RandomY)
                             if i == 1 or i == 5:#ctrl
-                                pyautogui.keyDown('ctrl')
-                                time.sleep(0.13)
-                                pyautogui.keyUp('ctrl')
+                                pyautogui.press('ctrl')
                             elif i == 2:#mouse click
-                                pyautogui.click(Fun.P1X,Fun.P1Y)
+                                pyautogui.click(Fun.P1X + random_intX,Fun.P1Y + random_intY)
                             elif i == 3:
-                                pyautogui.click(Fun.P2X,Fun.P2Y)
+                                pyautogui.click(Fun.P2X + random_intX,Fun.P2Y + random_intY)
                             elif i == 4:
-                                pyautogui.click(Fun.P3X,Fun.P3Y)
+                                pyautogui.click(Fun.P3X + random_intX,Fun.P3Y + random_intY)
                             elif i == 6:
-                                pyautogui.click(Fun.P4X,Fun.P4Y)
+                                pyautogui.click(Fun.P4X + random_intX,Fun.P4Y + random_intY)
                             if Fun.StopFunction:
                                 Fun.RunFlag = False
                                 break
@@ -58,16 +60,18 @@ class RunFunction:
                 def Digloop():
                     for i in range(Fun.Function1FightCount):
                         for i in range (1,7):
+                            random_intX = random.randint(Fun.NRandomX,Fun.RandomX)
+                            random_intY = random.randint(Fun.NRandomY,Fun.RandomY)
                             if i == 1 or i == 5:#ctrl
-                                pyautogui.hotkey('ctrl')
+                                pyautogui.press('ctrl')
                             elif i == 2:#mouse click
-                                pyautogui.click(Fun.P1X,Fun.P1Y)
+                                pyautogui.click(Fun.P1X + random_intX,Fun.P1Y + random_intY)
                             elif i == 3:
-                                pyautogui.click(Fun.P2X,Fun.P2Y)
+                                pyautogui.click(Fun.P2X + random_intX,Fun.P2Y + random_intY)
                             elif i == 4:
-                                pyautogui.click(Fun.P3X,Fun.P3Y)
+                                pyautogui.click(Fun.P3X + random_intX,Fun.P3Y + random_intY)
                             elif i == 6:
-                                pyautogui.click(Fun.P4X,Fun.P4Y)
+                                pyautogui.click(Fun.P4X + random_intX,Fun.P4Y + random_intY)
                             if Fun.StopFunction:
                                 Fun.RunFlag = False
                                 break

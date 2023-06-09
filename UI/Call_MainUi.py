@@ -40,7 +40,7 @@ class MainPageWindow(QtWidgets.QMainWindow,Ui_GBF_MAIN):
         titleicon.addPixmap(QtGui.QPixmap(":/ICON.ico"), QtGui.QIcon.Normal, QtGui.QIcon.On)
         Helpicon = QtGui.QIcon()
         self.setWindowIcon(titleicon)
-        self.setWindowTitle('星爆螞蟻人 V0.1.1')#title
+        self.setWindowTitle('星爆螞蟻人 V0.1.2')#title
         Helpicon.addPixmap(QtGui.QPixmap(":/Heip.ico"), QtGui.QIcon.Normal, QtGui.QIcon.On)
 
     def default(self):#框架預設#最初全域變數歸檔
@@ -87,6 +87,8 @@ class MainPageWindow(QtWidgets.QMainWindow,Ui_GBF_MAIN):
         self.Times_spinBox_2.valueChanged.connect(self.showDialog)
         self.stepspinBox.valueChanged.connect(self.showDialog)
         self.RoundspinBox.valueChanged.connect(self.showDialog)
+        self.RandomXSpin.valueChanged.connect(self.showDialog)
+        self.RandomYSpin.valueChanged.connect(self.showDialog)
         self.FRWidge.clicked.connect(self.showDialog)
         keyboard.add_hotkey('F2', self.on_hotkey_triggered)
         keyboard.add_hotkey('Esc', self.on_hotkey_Stop)
@@ -163,7 +165,12 @@ class MainPageWindow(QtWidgets.QMainWindow,Ui_GBF_MAIN):
             listener.join()
             self.P4SPINX.setValue(Fun.P4X)
             self.P4SPINY.setValue(Fun.P4Y)
-            
+        elif sender == self.RandomXSpin:
+            Fun.RandomX = self.RandomXSpin.value()
+            Fun.NRandomX = self.setobset(Fun.RandomX)
+        elif sender == self.RandomYSpin:
+            Fun.RandomY = self.RandomYSpin.value()
+            Fun.NRandomY = self.setobset(Fun.RandomY)
                         
         #elif sender == self.DebugButton:
         #   if Fun.DCBOT_EN == True:
@@ -179,6 +186,11 @@ class MainPageWindow(QtWidgets.QMainWindow,Ui_GBF_MAIN):
         #    self.SetScreenfuntion()
         #    x=Debugfunction()
         #    x.debugLog()
+
+    def setobset(self,number):
+        num = number - number*2
+        return num
+
     def on_hotkey_triggered(self):
         if Fun.RunFlag == False:
             QMetaObject.invokeMethod(self.Info_broswer, 'setText', Qt.QueuedConnection, Q_ARG(str, "腳本執行中"))
