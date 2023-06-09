@@ -72,7 +72,7 @@ class SettingPageWindow(QWidget,Ui_Setting):
             else:
                 self.WindowsComboBox.addItem(t)
             print (t)
-        self.WindowsComboBox.addItem("自動人 我的超人")
+        self.WindowsComboBox.addItem(Fun.version)
         try:
             windowsgetstr = self.WindowsComboBox.currentText()
             Fun.WindowsHandle = win32gui.FindWindow(None, windowsgetstr)

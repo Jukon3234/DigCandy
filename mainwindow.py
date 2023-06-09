@@ -5,6 +5,7 @@ from UI.Call_Help import HelpPageWindow
 from UI.Call_Setting import SettingPageWindow
 from PyQt5.QtGui import QPixmap
 import systemdata.icon.ICON
+import Function.Foundation as Fun
 
 class MainWindow(QWidget):
     
@@ -17,10 +18,10 @@ class MainWindow(QWidget):
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap(":/ICON.ico"), QtGui.QIcon.Normal, QtGui.QIcon.On)
         self.setWindowIcon(icon)
-        self.setWindowTitle('星爆螞蟻人 V0.1.2')
+        self.setWindowTitle(Fun.version)
 
     def initMainUI(self):
-        self.resize(460,330)
+        self.resize(511,413)
         self.layout = QGridLayout()
         self.setLayout(self.layout)
         
@@ -47,6 +48,6 @@ class MainWindow(QWidget):
             #self.Stack.setCurrentIndex(1)
             self.CallHelpUi.show()
         elif msg == 'change':
-            self.resize(460,330)
+            self.resize(511,413)
         elif msg == 'setting':
             self.CallSettingUI.show()

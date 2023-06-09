@@ -40,7 +40,7 @@ class MainPageWindow(QtWidgets.QMainWindow,Ui_GBF_MAIN):
         titleicon.addPixmap(QtGui.QPixmap(":/ICON.ico"), QtGui.QIcon.Normal, QtGui.QIcon.On)
         Helpicon = QtGui.QIcon()
         self.setWindowIcon(titleicon)
-        self.setWindowTitle('星爆螞蟻人 V0.1.2')#title
+        self.setWindowTitle(Fun.version)#title
         Helpicon.addPixmap(QtGui.QPixmap(":/Heip.ico"), QtGui.QIcon.Normal, QtGui.QIcon.On)
 
     def default(self):#框架預設#最初全域變數歸檔
@@ -63,6 +63,8 @@ class MainPageWindow(QtWidgets.QMainWindow,Ui_GBF_MAIN):
         Fun.P3X = savedata['Point']['P3X']
         self.P4SPINX.setValue(savedata['Point']['P4X'])
         Fun.P4X = savedata['Point']['P4X']
+        self.P4SPINX.setValue(savedata['Point']['P4X'])
+        Fun.P4X = savedata['Point']['P4X']
 
         self.P1SPINY.setValue(savedata['Point']['P1Y'])
         Fun.P1Y = savedata['Point']['P1Y']
@@ -72,6 +74,8 @@ class MainPageWindow(QtWidgets.QMainWindow,Ui_GBF_MAIN):
         Fun.P3Y = savedata['Point']['P3Y']
         self.P4SPINY.setValue(savedata['Point']['P4Y'])
         Fun.P4Y = savedata['Point']['P4Y']
+
+        self.PageTitle.setText(Fun.version)
 
         self.SaveText.setText(" ")
         self.setMouseTracking(True)
@@ -89,6 +93,8 @@ class MainPageWindow(QtWidgets.QMainWindow,Ui_GBF_MAIN):
         self.RoundspinBox.valueChanged.connect(self.showDialog)
         self.RandomXSpin.valueChanged.connect(self.showDialog)
         self.RandomYSpin.valueChanged.connect(self.showDialog)
+        self.stepdelayran.valueChanged.connect(self.showDialog)
+        self.Rounddelayran.valueChanged.connect(self.showDialog)
         self.FRWidge.clicked.connect(self.showDialog)
         keyboard.add_hotkey('F2', self.on_hotkey_triggered)
         keyboard.add_hotkey('Esc', self.on_hotkey_Stop)
@@ -97,6 +103,8 @@ class MainPageWindow(QtWidgets.QMainWindow,Ui_GBF_MAIN):
         self.P2.clicked.connect(self.showDialog)
         self.P3.clicked.connect(self.showDialog)
         self.P4.clicked.connect(self.showDialog)
+        self.P5.clicked.connect(self.showDialog)
+        self.P6.clicked.connect(self.showDialog)
     
     
     
@@ -165,12 +173,38 @@ class MainPageWindow(QtWidgets.QMainWindow,Ui_GBF_MAIN):
             listener.join()
             self.P4SPINX.setValue(Fun.P4X)
             self.P4SPINY.setValue(Fun.P4Y)
+        elif sender == self.P5:
+            def on_click(x, y, button, pressed):
+                if pressed:
+                    Fun.P5X,Fun.P5Y = x, y                    
+                    listener.stop()                
+            listener = Listener(on_click = on_click)            
+            listener.start()
+            listener.join()
+            self.P5SPINX.setValue(Fun.P5X)
+            self.P5SPINY.setValue(Fun.P5Y)
+        elif sender == self.P6:
+            def on_click(x, y, button, pressed):
+                if pressed:
+                    Fun.P6X,Fun.P6Y = x, y                    
+                    listener.stop()                
+            listener = Listener(on_click = on_click)            
+            listener.start()
+            listener.join()
+            self.P6SPINX.setValue(Fun.P6X)
+            self.P6SPINY.setValue(Fun.P6Y)
         elif sender == self.RandomXSpin:
             Fun.RandomX = self.RandomXSpin.value()
             Fun.NRandomX = self.setobset(Fun.RandomX)
         elif sender == self.RandomYSpin:
             Fun.RandomY = self.RandomYSpin.value()
             Fun.NRandomY = self.setobset(Fun.RandomY)
+        elif sender == self.stepdelayran:
+            Fun.stepdelayRandom = self.stepdelayran.value()
+            Fun.NstepdelayRandom = self.setobset(Fun.stepdelayRandom)
+        elif sender == self.Rounddelayran:
+            Fun.RounddelayRandom = self.Rounddelayran.value()
+            Fun.NRounddelayRandom = self.setobset(Fun.RounddelayRandom)
                         
         #elif sender == self.DebugButton:
         #   if Fun.DCBOT_EN == True:
@@ -224,8 +258,8 @@ class MainPageWindow(QtWidgets.QMainWindow,Ui_GBF_MAIN):
         Savedata = {}
         Savedata['function'] = {'FightCount': Fun.Function1FightCount}
         Savedata['Bot'] = {'TOKEN': Fun.DCBOT_Token,'Channal_ID': Fun.DCBOT_ChannalID,'Enabled' : Fun.DCBOT_EN}
-        Savedata['Delay']={'StepDelay': Fun.StepDelay, 'RoundDelay': Fun.RoundDelay}
-        Savedata['Point'] = {'P1X': Fun.P1X,'P1Y': Fun.P1Y,'P2X': Fun.P2X, 'P2Y': Fun.P2Y,'P3X' : Fun.P3X, 'P3Y' : Fun.P3Y, 'P4X' : Fun.P4X, 'P4Y' : Fun.P4Y}
+        Savedata['Delay']={'StepDelay': Fun.StepDelay, 'RoundDelay': Fun.RoundDelay,'stepdelayRandom': Fun.stepdelayRandom,'RounddelayRandom': Fun.RounddelayRandom}
+        Savedata['Point'] = {'P1X': Fun.P1X,'P1Y': Fun.P1Y,'P2X': Fun.P2X, 'P2Y': Fun.P2Y,'P3X' : Fun.P3X, 'P3Y' : Fun.P3Y, 'P4X' : Fun.P4X, 'P4Y' : Fun.P4Y,'P5X' : Fun.P5X, 'P5Y' : Fun.P5Y, 'P6X' : Fun.P6X, 'P6Y' : Fun.P6Y}
         with open('systemdata/datasave/data.json', 'w') as datafile:
             json.dump(Savedata,datafile)
         self.SaveText.setText("set成功")

@@ -28,61 +28,71 @@ class RunFunction:
             if Fun.Function1FightCount == 0:
                 def Digloop():
                     while Fun.StopFunction == False:
-                        
+                        random_DelayStep = random.randint(Fun.NstepdelayRandom,Fun.stepdelayRandom)
+                        random_DelayRound = random.randint(Fun.NRounddelayRandom,Fun.RounddelayRandom)
                         for i in range (1,7):
                             if Fun.RandomX >> 0 or Fun.RandomY >> 0:
                                 random_intX = random.randint(Fun.NRandomX,Fun.RandomX)
                                 random_intY = random.randint(Fun.NRandomY,Fun.RandomY)
-                            if i == 1 or i == 5:#ctrl
-                                pyautogui.press('ctrl')
-                            elif i == 2:#mouse click
+                                
+                            if i == 1:
                                 pyautogui.click(Fun.P1X + random_intX,Fun.P1Y + random_intY)
-                            elif i == 3:
+                            elif i == 2:
                                 pyautogui.click(Fun.P2X + random_intX,Fun.P2Y + random_intY)
-                            elif i == 4:
+                            elif i == 3:
                                 pyautogui.click(Fun.P3X + random_intX,Fun.P3Y + random_intY)
-                            elif i == 6:
+                            elif i == 4:
                                 pyautogui.click(Fun.P4X + random_intX,Fun.P4Y + random_intY)
+                            elif i == 5:
+                                pyautogui.click(Fun.P5X + random_intX,Fun.P5Y + random_intY)
+                            elif i == 6:
+                                pyautogui.click(Fun.P6X + random_intX,Fun.P6Y + random_intY)
                             if Fun.StopFunction:
                                 Fun.RunFlag = False
                                 break
                             if Fun.StepDelay != 0:
-                                Delay = Fun.StepDelay/1000
+                                Delay = Fun.StepDelay/1000 + random_DelayStep
                                 time.sleep(Delay)
                         if Fun.StopFunction:
                             Fun.RunFlag = False
                             break
                         if Fun.RoundDelay != 0:
-                            RDelay = Fun.RoundDelay/1000
+                            RDelay = Fun.RoundDelay/1000 + random_DelayRound
                             time.sleep(RDelay)
                         
             else:
                 def Digloop():
                     for i in range(Fun.Function1FightCount):
+                        random_DelayStep = random.randint(Fun.NstepdelayRandom,Fun.stepdelayRandom)
+                        random_DelayRound = random.randint(Fun.NRounddelayRandom,Fun.RounddelayRandom)
                         for i in range (1,7):
-                            random_intX = random.randint(Fun.NRandomX,Fun.RandomX)
-                            random_intY = random.randint(Fun.NRandomY,Fun.RandomY)
-                            if i == 1 or i == 5:#ctrl
-                                pyautogui.press('ctrl')
-                            elif i == 2:#mouse click
+                            if Fun.RandomX >> 0 or Fun.RandomY >> 0:
+                                random_intX = random.randint(Fun.NRandomX,Fun.RandomX)
+                                random_intY = random.randint(Fun.NRandomY,Fun.RandomY)
+                                
+                            if i == 1:
                                 pyautogui.click(Fun.P1X + random_intX,Fun.P1Y + random_intY)
-                            elif i == 3:
+                            elif i == 2:#mouse click
                                 pyautogui.click(Fun.P2X + random_intX,Fun.P2Y + random_intY)
-                            elif i == 4:
+                            elif i == 3:
                                 pyautogui.click(Fun.P3X + random_intX,Fun.P3Y + random_intY)
-                            elif i == 6:
+                            elif i == 4:
                                 pyautogui.click(Fun.P4X + random_intX,Fun.P4Y + random_intY)
+                            elif i == 5:
+                                pyautogui.click(Fun.P5X + random_intX,Fun.P5Y + random_intY)
+                            elif i == 6:
+                                pyautogui.click(Fun.P6X + random_intX,Fun.P6Y + random_intY)
                             if Fun.StopFunction:
                                 Fun.RunFlag = False
                                 break
                             if Fun.StepDelay != 0:
-                                Delay = Fun.StepDelay/1000
+                                Delay = Fun.StepDelay/1000 + random_DelayStep
                                 time.sleep(Delay)
                         if Fun.StopFunction:
                             Fun.RunFlag = False
                             break
                         if Fun.RoundDelay != 0:
-                            RDelay = Fun.RoundDelay/1000
+                            RDelay = Fun.RoundDelay/1000 + random_DelayRound
                             time.sleep(RDelay)
                     Fun.RunFlag = False
         
