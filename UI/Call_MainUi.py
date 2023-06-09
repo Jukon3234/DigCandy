@@ -40,7 +40,7 @@ class MainPageWindow(QtWidgets.QMainWindow,Ui_GBF_MAIN):
         titleicon.addPixmap(QtGui.QPixmap(":/ICON.ico"), QtGui.QIcon.Normal, QtGui.QIcon.On)
         Helpicon = QtGui.QIcon()
         self.setWindowIcon(titleicon)
-        self.setWindowTitle('螞蟻人 V0.0.1')#title
+        self.setWindowTitle('星爆螞蟻人 V0.1.0')#title
         Helpicon.addPixmap(QtGui.QPixmap(":/Heip.ico"), QtGui.QIcon.Normal, QtGui.QIcon.On)
 
     def default(self):#框架預設#最初全域變數歸檔
@@ -56,18 +56,30 @@ class MainPageWindow(QtWidgets.QMainWindow,Ui_GBF_MAIN):
         self.Times_spinBox_2.setValue(savedata['function']['FightCount'])
 
         self.P1SPINX.setValue(savedata['Point']['P1X'])
+        Fun.P1X = savedata['Point']['P1X']
         self.P2SPINX.setValue(savedata['Point']['P2X'])
+        Fun.P2X = savedata['Point']['P2X']
         self.P3SPINX.setValue(savedata['Point']['P3X'])
+        Fun.P3X = savedata['Point']['P3X']
         self.P4SPINX.setValue(savedata['Point']['P4X'])
+        Fun.P4X = savedata['Point']['P4X']
         self.P5SPINX.setValue(savedata['Point']['P5X'])
+        Fun.P5X = savedata['Point']['P5X']
         self.P6SPINX.setValue(savedata['Point']['P6X'])
+        Fun.P6X = savedata['Point']['P6X']
 
         self.P1SPINY.setValue(savedata['Point']['P1Y'])
+        Fun.P1Y = savedata['Point']['P1Y']
         self.P2SPINY.setValue(savedata['Point']['P2Y'])
+        Fun.P2Y = savedata['Point']['P2Y']
         self.P3SPINY.setValue(savedata['Point']['P3Y'])
+        Fun.P3Y = savedata['Point']['P3Y']
         self.P4SPINY.setValue(savedata['Point']['P4Y'])
+        Fun.P4Y = savedata['Point']['P4Y']
         self.P5SPINY.setValue(savedata['Point']['P5Y'])
+        Fun.P5Y = savedata['Point']['P5Y']
         self.P6SPINY.setValue(savedata['Point']['P6Y'])
+        Fun.P6Y = savedata['Point']['P6Y']
 
         self.SaveText.setText(" ")
         self.setMouseTracking(True)
@@ -106,6 +118,7 @@ class MainPageWindow(QtWidgets.QMainWindow,Ui_GBF_MAIN):
             self.Info_broswer.setText("腳本執行中")
             x=RunFunction()
             x.RunFGscrept()
+            self.Info_broswer.setText(Fun.BroswerText)
         elif sender == self.FuncStopButton:
             Fun.StopFunction = True
             self.Info_broswer.clear()
@@ -201,6 +214,7 @@ class MainPageWindow(QtWidgets.QMainWindow,Ui_GBF_MAIN):
             QMetaObject.invokeMethod(self.Info_broswer, 'setText', Qt.QueuedConnection, Q_ARG(str, "腳本執行中"))
             x=RunFunction()
             x.RunFGscrept()
+            QMetaObject.invokeMethod(self.Info_broswer, 'setText', Qt.QueuedConnection, Q_ARG(str, Fun.BroswerText))
     
     def on_hotkey_Stop(self):
         if Fun.StopFunction == False:

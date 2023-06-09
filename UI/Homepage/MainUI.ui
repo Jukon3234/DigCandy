@@ -876,7 +876,7 @@ p, li { white-space: pre-wrap; }
                </font>
               </property>
               <property name="text">
-               <string>星爆螞蟻礦工 V0.0.2</string>
+               <string>星爆螞蟻礦工 V0.1.0</string>
               </property>
               <property name="alignment">
                <set>Qt::AlignCenter</set>
@@ -956,7 +956,4 @@ p, li { white-space: pre-wrap; }
  </widget>
  <resources/>
  <connections/>
- <buttongroups>
-  <buttongroup name="buttonGroup"/>
- </buttongroups>
 </ui>

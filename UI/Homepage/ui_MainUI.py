@@ -456,7 +456,7 @@ class Ui_GBF_MAIN(object):
 "</style></head><body style=\" font-family:\'PMingLiU\'; font-size:12pt; font-weight:400; font-style:normal;\">\n"
 "<p align=\"center\" style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p></body></html>"))
         self.FuncStopButton.setText(_translate("GBF_MAIN", "STOP(ESC)"))
-        self.PageTitle.setText(_translate("GBF_MAIN", "星爆螞蟻礦工 V0.0.2"))
+        self.PageTitle.setText(_translate("GBF_MAIN", "星爆螞蟻礦工 V0.1.0"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab), _translate("GBF_MAIN", "執行腳本"))
         self.menuHelp.setTitle(_translate("GBF_MAIN", "設定"))
         self.actionAdd.setText(_translate("GBF_MAIN", "Add"))

@@ -20,6 +20,7 @@ P5X = 0
 P5Y = 0
 P6X = 0
 P6Y = 0
+BroswerText = " "
 HTML_Text = "https://game.granbluefantasy.jp/#top"
 WindowsHandle = 0
 

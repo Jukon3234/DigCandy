@@ -17,7 +17,7 @@ class MainWindow(QWidget):
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap(":/ICON.ico"), QtGui.QIcon.Normal, QtGui.QIcon.On)
         self.setWindowIcon(icon)
-        self.setWindowTitle('螞蟻人 V0.0.1')
+        self.setWindowTitle('星爆螞蟻人 V0.1.0')
 
     def initMainUI(self):
         self.resize(600,400)
@@ -50,5 +50,3 @@ class MainWindow(QWidget):
             self.resize(600,400)
         elif msg == 'setting':
             self.CallSettingUI.show()
-        #if msg == 'Hide':
-        #    self.groupBox_2.Hide()

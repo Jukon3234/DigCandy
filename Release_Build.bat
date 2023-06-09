@@ -10,7 +10,7 @@ pyrcc5.exe -o ICON.py .\ICON.qrc
 cd ..
 cd ..
 pyinstaller --onefile --noconsole --icon=myicon.ico .\main.py
-#python.exe -B .\main.py
+rem python.exe -B .\main.py
 
 
 
