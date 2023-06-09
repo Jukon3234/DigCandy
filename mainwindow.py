@@ -17,7 +17,7 @@ class MainWindow(QWidget):
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap(":/ICON.ico"), QtGui.QIcon.Normal, QtGui.QIcon.On)
         self.setWindowIcon(icon)
-        self.setWindowTitle('自動人 我的超人')
+        self.setWindowTitle('螞蟻人 V0.0.1')
 
     def initMainUI(self):
         self.resize(425,340)

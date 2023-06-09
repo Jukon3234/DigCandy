@@ -24,7 +24,7 @@ class RunFunction:
         print("StopFunction: ", Fun.StopFunction)
         print("Function1FightCount: ", Fun.Function1FightCount)
         print("TypeSelect: ", Fun.TypeSelect)
-        print("RunFlag: ", Fun.RunFlag)    
+        print("RunFlag: ", Fun.RunFlag)
     #====================================function
     def RunFGscrept(self):
         if Fun.RunFlag == False:
@@ -39,47 +39,22 @@ class RunFunction:
                 def Digloop():
                     while Fun.StopFunction == False:
                         try:
-                            pyautogui.hotkey('ctrl')
+                            for i in range 1,10
+                                if i == 1:#ctrl
+                                    pyautogui.hotkey('ctrl')
+                                elif i == 2:#Down
+                                    pyautogui.hotkey('down')
+                                elif i == 3:#mouse click
+
+                                if Fun.StopFunction:
+                                    Fun.RunFlag = False
+                                    break
+                                if Fun.StepDelay != 0:
+                                    Delay = Fuc.StepDelay/1000
+                                    time.sleep(Delay)
                             if Fun.StopFunction:
                                 Fun.RunFlag = False
                                 break
-                            pyautogui.hotkey('down')
-                            if Fun.StopFunction:
-                                Fun.RunFlag = False
-                                break
-                            pyautogui.hotkey('ctrl')
-                            if Fun.StopFunction:
-                                Fun.RunFlag = False
-                                break
-                            pyautogui.hotkey('ctrl')
-                            if Fun.StopFunction:
-                                Fun.RunFlag = False
-                                break
-                            pyautogui.hotkey('ctrl')
-                            if Fun.StopFunction:
-                                Fun.RunFlag = False
-                                break
-                            pyautogui.hotkey('down')
-                            if Fun.StopFunction:
-                                Fun.RunFlag = False
-                                break
-                            pyautogui.hotkey('down')
-                            if Fun.StopFunction:
-                                Fun.RunFlag = False
-                                break
-                            pyautogui.hotkey('ctrl')
-                            if Fun.StopFunction:
-                                Fun.RunFlag = False
-                                break
-                            pyautogui.hotkey('ctrl')
-                            if Fun.StopFunction:
-                                Fun.RunFlag = False
-                                break
-                            pyautogui.hotkey('ctrl')
-                            if Fun.StopFunction:
-                                Fun.RunFlag = False
-                                break
-                            Fun.RunFlag = False
                         except:
                             print("Function fail")
                             Fun.RunFlag = False
@@ -90,50 +65,22 @@ class RunFunction:
                         C=i+1
                         TC=Fun.Function1FightCount
                         
-                        pyautogui.hotkey('ctrl')
+                        for j in range 1,10
+                                if j == 1:#ctrl
+                                    pyautogui.hotkey('ctrl')
+                                elif j == 2:#Down
+                                    pyautogui.hotkey('down')
+                                elif j == 3:#mouse click
+
+                                if Fun.StopFunction:
+                                    Fun.RunFlag = False
+                                    break
+                                if Fun.StepDelay != 0:
+                                    Delay = Fuc.StepDelay/1000
+                                    time.sleep(Delay)
                         if Fun.StopFunction:
                             Fun.RunFlag = False
-                            break
-                        pyautogui.hotkey('down')
-                        if Fun.StopFunction:
-                            Fun.RunFlag = False
-                            break
-                        pyautogui.hotkey('ctrl')
-                        if Fun.StopFunction:
-                            Fun.RunFlag = False
-                            break
-                        pyautogui.hotkey('ctrl')
-                        if Fun.StopFunction:
-                            Fun.RunFlag = False
-                            break
-                        pyautogui.hotkey('ctrl')
-                        if Fun.StopFunction:
-                            Fun.RunFlag = False
-                            break
-                        pyautogui.hotkey('down')
-                        if Fun.StopFunction:
-                            Fun.RunFlag = False
-                            break
-                        pyautogui.hotkey('down')
-                        if Fun.StopFunction:
-                            Fun.RunFlag = False
-                            break
-                        pyautogui.hotkey('ctrl')
-                        if Fun.StopFunction:
-                            Fun.RunFlag = False
-                            break
-                        pyautogui.hotkey('ctrl')
-                        if Fun.StopFunction:
-                            Fun.RunFlag = False
-                            break
-                        pyautogui.hotkey('ctrl')
-                        if Fun.StopFunction:
-                            Fun.RunFlag = False
-                            break
-                        Fun.RunFlag = False
-                        time.sleep(1)
-                        if Fun.StopFunction:
-                            break
+                            break           
                     Fun.RunFlag = False
         
             global functionthread

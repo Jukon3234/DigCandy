@@ -100,8 +100,9 @@ class SettingPageWindow(QWidget,Ui_Setting):
         Fun.DCBOT_Token = self.DC_TOKEN.text()
         Fun.DCBOT_ChannalID = self.DC_CHID.text()
         Savedata = {}
-        Savedata['function'] = {'FightCount': Fun.Function1FightCount, 'TypeSelect': 0}
+        Savedata['function'] = {'FightCount': Fun.Function1FightCount}
         Savedata['Bot'] = {'TOKEN': Fun.DCBOT_Token,'Channal_ID': Fun.DCBOT_ChannalID,'Enabled' : Fun.DCBOT_EN}
+        Savedata['Delay']={'StepDelay': Fun.StepDelay, 'RoundDelay': Fun.RoundDelay}
         with open('systemdata/datasave/data.json', 'w') as datafile:
             json.dump(Savedata,datafile)
 

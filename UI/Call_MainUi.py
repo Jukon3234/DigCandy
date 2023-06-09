@@ -21,6 +21,7 @@ import win32gui
 import os
 import pyautogui as pag
 import cv2
+import keyboard
 
 class MainPageWindow(QtWidgets.QMainWindow,Ui_GBF_MAIN):
     chooseSignal = pyqtSignal(str)
@@ -49,8 +50,11 @@ class MainPageWindow(QtWidgets.QMainWindow,Ui_GBF_MAIN):
         savedata= json.load(SaveFile)
         Fun.DCBOT_Token = savedata['Bot']['TOKEN']
         Fun.DCBOT_ChannalID = savedata['Bot']['Channal_ID']
+        self.RoundspinBox.setValue(savedata['Delay']['RoundDelay'])
+        self.stepspinBox.setValue(savedata['Delay']['StepDelay'])
         self.Times_spinBox_2.setValue(savedata['function']['FightCount'])
         self.SaveText.setText(" ")
+
 
 
     def initbuttonUI(self):#按鈕設定
@@ -58,10 +62,13 @@ class MainPageWindow(QtWidgets.QMainWindow,Ui_GBF_MAIN):
         self.actionsetting.triggered.connect(self.showDialog)
         self.Screptrun.clicked.connect(self.showDialog)
         self.FuncStopButton.clicked.connect(self.showDialog)
-        self.AllstopButton.clicked.connect(self.showDialog)
         self.SetButton.clicked.connect(self.showDialog)
         self.Times_spinBox_2.valueChanged.connect(self.showDialog)
+        self.stepspinBox.valueChanged.connect(self.showDialog)
+        self.RoundspinBox.valueChanged.connect(self.showDialog)
         self.FRWidge.clicked.connect(self.showDialog)
+        keyboard.add_hotkey('F2', self.on_hotkey_triggered)
+        keyboard.add_hotkey('Esc', self.on_hotkey_Stop)
         #self.DebugButton.clicked.connect(self.showDialog)
     
     def showDialog(self):#按鈕function
@@ -74,7 +81,7 @@ class MainPageWindow(QtWidgets.QMainWindow,Ui_GBF_MAIN):
             self.Info_broswer.setText("腳本執行中")
             x=RunFunction()
             x.RunFGscrept()
-        elif sender == self.FuncStopButton or sender == self.AllstopButton:
+        elif sender == self.FuncStopButton:
             Fun.StopFunction = True
             self.Info_broswer.clear()
             self.Mbox('緊急中止', '中止', 0)
@@ -84,6 +91,10 @@ class MainPageWindow(QtWidgets.QMainWindow,Ui_GBF_MAIN):
             self.settingtext()
         elif sender == self.FRWidge:
             self.chooseSignal.emit('change')
+        elif sender == self.stepspinBox:
+            self.SettingDelay()
+        elif sender == self.RoundspinBox:
+            self.SettingDelay()
         #elif sender == self.DebugButton:
         #   if Fun.DCBOT_EN == True:
         #       DET = GetPicFunction()
@@ -98,15 +109,20 @@ class MainPageWindow(QtWidgets.QMainWindow,Ui_GBF_MAIN):
         #    self.SetScreenfuntion()
         #    x=Debugfunction()
         #    x.debugLog()
+    def on_hotkey_triggered(self):
+        if Fun.RunFlag == False:
+            QMetaObject.invokeMethod(self.Info_broswer, 'setText', Qt.QueuedConnection, Q_ARG(str, "腳本執行中"))
+            x=RunFunction()
+            x.RunFGscrept()
+    
+    def on_hotkey_Stop(self):
+        if Fun.StopFunction == False:
+            Fun.StopFunction = True
+            QMetaObject.invokeMethod(self.Info_broswer, 'setText', Qt.QueuedConnection, Q_ARG(str, "中斷程序"))
+            self.Mbox('終止', '緊急終止', 0)
 
     def Mbox(self, title, text, style):
         return windll.user32.MessageBoxW(0, text, title, style)
-
-    def keyPressEvent(self, event):
-        if event.key() == Qt.Key_Escape:
-            Fun.StopFunction = True
-            self.Info_broswer.clear()
-            self.Mbox('緊急中止', '中止', 0)
 
     def settingtext(self):
         Fun.Function1FightCount = self.Times_spinBox_2.value()
@@ -115,11 +131,16 @@ class MainPageWindow(QtWidgets.QMainWindow,Ui_GBF_MAIN):
         else:
             self.label_1.setText("Set :"+str(Fun.Function1FightCount))
 
+    def SettingDelay(self):
+        Fun.StepDelay = self.stepspinBox.value()
+        Fun.RoundDelay = self.RoundspinBox.value()
+
     def SaveFile(self):
         Fun.Function1FightCount = self.Times_spinBox_2.value()
         Savedata = {}
-        Savedata['function'] = {'FightCount': Fun.Function1FightCount, 'TypeSelect': 0}
+        Savedata['function'] = {'FightCount': Fun.Function1FightCount}
         Savedata['Bot'] = {'TOKEN': Fun.DCBOT_Token,'Channal_ID': Fun.DCBOT_ChannalID,'Enabled' : Fun.DCBOT_EN}
+        Savedata['Delay']={'StepDelay': Fun.StepDelay, 'RoundDelay': Fun.RoundDelay}
 
         with open('systemdata/datasave/data.json', 'w') as datafile:
             json.dump(Savedata,datafile)

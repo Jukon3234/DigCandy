@@ -6,6 +6,8 @@ DCBOT_Token = '0000'
 DCBOT_ChannalID = 0
 DCBOT_EN = False
 locations = []
+StepDelay = 0
+RoundDelay = 0
 
 HTML_Text = "https://game.granbluefantasy.jp/#top"
 WindowsHandle = 0
