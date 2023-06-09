@@ -17,10 +17,10 @@ class MainWindow(QWidget):
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap(":/ICON.ico"), QtGui.QIcon.Normal, QtGui.QIcon.On)
         self.setWindowIcon(icon)
-        self.setWindowTitle('星爆螞蟻人 V0.1.0')
+        self.setWindowTitle('星爆螞蟻人 V0.1.1')
 
     def initMainUI(self):
-        self.resize(600,400)
+        self.resize(460,320)
         self.layout = QGridLayout()
         self.setLayout(self.layout)
         
@@ -47,6 +47,6 @@ class MainWindow(QWidget):
             #self.Stack.setCurrentIndex(1)
             self.CallHelpUi.show()
         elif msg == 'change':
-            self.resize(600,400)
+            self.resize(460,320)
         elif msg == 'setting':
             self.CallSettingUI.show()

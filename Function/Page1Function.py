@@ -28,21 +28,19 @@ class RunFunction:
                 def Digloop():
                     while Fun.StopFunction == False:
                         
-                        for i in range (1,9):
-                            if i == 1 or i == 6:#ctrl
-                                pyautogui.hotkey('ctrl')
+                        for i in range (1,7):
+                            if i == 1 or i == 5:#ctrl
+                                pyautogui.keyDown('ctrl')
+                                time.sleep(0.13)
+                                pyautogui.keyUp('ctrl')
                             elif i == 2:#mouse click
                                 pyautogui.click(Fun.P1X,Fun.P1Y)
                             elif i == 3:
                                 pyautogui.click(Fun.P2X,Fun.P2Y)
                             elif i == 4:
                                 pyautogui.click(Fun.P3X,Fun.P3Y)
-                            elif i == 5:
+                            elif i == 6:
                                 pyautogui.click(Fun.P4X,Fun.P4Y)
-                            elif i == 7:
-                                pyautogui.click(Fun.P5X,Fun.P5Y)
-                            elif i == 8:
-                                pyautogui.click(Fun.P6X,Fun.P6Y)
                             if Fun.StopFunction:
                                 Fun.RunFlag = False
                                 break
@@ -59,8 +57,8 @@ class RunFunction:
             else:
                 def Digloop():
                     for i in range(Fun.Function1FightCount):
-                        for i in range (1,9):
-                            if i == 1 or i == 6:#ctrl
+                        for i in range (1,7):
+                            if i == 1 or i == 5:#ctrl
                                 pyautogui.hotkey('ctrl')
                             elif i == 2:#mouse click
                                 pyautogui.click(Fun.P1X,Fun.P1Y)
@@ -68,17 +66,13 @@ class RunFunction:
                                 pyautogui.click(Fun.P2X,Fun.P2Y)
                             elif i == 4:
                                 pyautogui.click(Fun.P3X,Fun.P3Y)
-                            elif i == 5:
+                            elif i == 6:
                                 pyautogui.click(Fun.P4X,Fun.P4Y)
-                            elif i == 7:
-                                pyautogui.click(Fun.P5X,Fun.P5Y)
-                            elif i == 8:
-                                pyautogui.click(Fun.P6X,Fun.P6Y)
                             if Fun.StopFunction:
                                 Fun.RunFlag = False
                                 break
                             if Fun.StepDelay != 0:
-                                Delay = Fuc.StepDelay/1000
+                                Delay = Fun.StepDelay/1000
                                 time.sleep(Delay)
                         if Fun.StopFunction:
                             Fun.RunFlag = False

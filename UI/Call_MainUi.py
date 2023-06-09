@@ -40,7 +40,7 @@ class MainPageWindow(QtWidgets.QMainWindow,Ui_GBF_MAIN):
         titleicon.addPixmap(QtGui.QPixmap(":/ICON.ico"), QtGui.QIcon.Normal, QtGui.QIcon.On)
         Helpicon = QtGui.QIcon()
         self.setWindowIcon(titleicon)
-        self.setWindowTitle('星爆螞蟻人 V0.1.0')#title
+        self.setWindowTitle('星爆螞蟻人 V0.1.1')#title
         Helpicon.addPixmap(QtGui.QPixmap(":/Heip.ico"), QtGui.QIcon.Normal, QtGui.QIcon.On)
 
     def default(self):#框架預設#最初全域變數歸檔
@@ -63,10 +63,6 @@ class MainPageWindow(QtWidgets.QMainWindow,Ui_GBF_MAIN):
         Fun.P3X = savedata['Point']['P3X']
         self.P4SPINX.setValue(savedata['Point']['P4X'])
         Fun.P4X = savedata['Point']['P4X']
-        self.P5SPINX.setValue(savedata['Point']['P5X'])
-        Fun.P5X = savedata['Point']['P5X']
-        self.P6SPINX.setValue(savedata['Point']['P6X'])
-        Fun.P6X = savedata['Point']['P6X']
 
         self.P1SPINY.setValue(savedata['Point']['P1Y'])
         Fun.P1Y = savedata['Point']['P1Y']
@@ -76,10 +72,6 @@ class MainPageWindow(QtWidgets.QMainWindow,Ui_GBF_MAIN):
         Fun.P3Y = savedata['Point']['P3Y']
         self.P4SPINY.setValue(savedata['Point']['P4Y'])
         Fun.P4Y = savedata['Point']['P4Y']
-        self.P5SPINY.setValue(savedata['Point']['P5Y'])
-        Fun.P5Y = savedata['Point']['P5Y']
-        self.P6SPINY.setValue(savedata['Point']['P6Y'])
-        Fun.P6Y = savedata['Point']['P6Y']
 
         self.SaveText.setText(" ")
         self.setMouseTracking(True)
@@ -103,8 +95,6 @@ class MainPageWindow(QtWidgets.QMainWindow,Ui_GBF_MAIN):
         self.P2.clicked.connect(self.showDialog)
         self.P3.clicked.connect(self.showDialog)
         self.P4.clicked.connect(self.showDialog)
-        self.P5.clicked.connect(self.showDialog)
-        self.P6.clicked.connect(self.showDialog)
     
     
     
@@ -173,26 +163,6 @@ class MainPageWindow(QtWidgets.QMainWindow,Ui_GBF_MAIN):
             listener.join()
             self.P4SPINX.setValue(Fun.P4X)
             self.P4SPINY.setValue(Fun.P4Y)
-        elif sender == self.P5:
-            def on_click(x, y, button, pressed):
-                if pressed:
-                    Fun.P5X,Fun.P5Y = x, y                                       
-                    listener.stop()                
-            listener = Listener(on_click = on_click)
-            listener.start()
-            listener.join()
-            self.P5SPINX.setValue(Fun.P5X)
-            self.P5SPINY.setValue(Fun.P5Y) 
-        elif sender == self.P6:
-            def on_click(x, y, button, pressed):
-                if pressed:
-                    Fun.P6X,Fun.P6Y = x, y                    
-                    listener.stop()                
-            listener = Listener(on_click = on_click)
-            listener.start()
-            listener.join()
-            self.P6SPINX.setValue(Fun.P6X)
-            self.P6SPINY.setValue(Fun.P6Y)
             
                         
         #elif sender == self.DebugButton:
@@ -214,7 +184,8 @@ class MainPageWindow(QtWidgets.QMainWindow,Ui_GBF_MAIN):
             QMetaObject.invokeMethod(self.Info_broswer, 'setText', Qt.QueuedConnection, Q_ARG(str, "腳本執行中"))
             x=RunFunction()
             x.RunFGscrept()
-            QMetaObject.invokeMethod(self.Info_broswer, 'setText', Qt.QueuedConnection, Q_ARG(str, Fun.BroswerText))
+            if Fun.BroswerText != " ":
+                QMetaObject.invokeMethod(self.Info_broswer, 'setText', Qt.QueuedConnection, Q_ARG(str, Fun.BroswerText))
     
     def on_hotkey_Stop(self):
         if Fun.StopFunction == False:
@@ -242,7 +213,7 @@ class MainPageWindow(QtWidgets.QMainWindow,Ui_GBF_MAIN):
         Savedata['function'] = {'FightCount': Fun.Function1FightCount}
         Savedata['Bot'] = {'TOKEN': Fun.DCBOT_Token,'Channal_ID': Fun.DCBOT_ChannalID,'Enabled' : Fun.DCBOT_EN}
         Savedata['Delay']={'StepDelay': Fun.StepDelay, 'RoundDelay': Fun.RoundDelay}
-        Savedata['Point'] = {'P1X': Fun.P1X,'P1Y': Fun.P1Y,'P2X': Fun.P2X, 'P2Y': Fun.P2Y,'P3X' : Fun.P3X, 'P3Y' : Fun.P3Y, 'P4X' : Fun.P4X, 'P4Y' : Fun.P4Y, 'P5X' : Fun.P5X, 'P5Y' : Fun.P5Y ,'P6X' : Fun.P6X, 'P6Y' : Fun.P6Y}
+        Savedata['Point'] = {'P1X': Fun.P1X,'P1Y': Fun.P1Y,'P2X': Fun.P2X, 'P2Y': Fun.P2Y,'P3X' : Fun.P3X, 'P3Y' : Fun.P3Y, 'P4X' : Fun.P4X, 'P4Y' : Fun.P4Y}
         with open('systemdata/datasave/data.json', 'w') as datafile:
             json.dump(Savedata,datafile)
         self.SaveText.setText("set成功")

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>607</width>
-    <height>372</height>
+    <width>511</width>
+    <height>289</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -52,8 +52,8 @@
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>605</width>
-         <height>329</height>
+         <width>509</width>
+         <height>246</height>
         </rect>
        </property>
        <layout class="QVBoxLayout" name="verticalLayout_4">
@@ -460,19 +460,6 @@
                     <property name="spacing">
                      <number>3</number>
                     </property>
-                    <item row="5" column="0">
-                     <widget class="QPushButton" name="P5">
-                      <property name="maximumSize">
-                       <size>
-                        <width>47</width>
-                        <height>16777215</height>
-                       </size>
-                      </property>
-                      <property name="text">
-                       <string>Tap5</string>
-                      </property>
-                     </widget>
-                    </item>
                     <item row="2" column="2">
                      <widget class="QSpinBox" name="P2SPINY">
                       <property name="enabled">
@@ -486,8 +473,8 @@
                       </property>
                      </widget>
                     </item>
-                    <item row="6" column="1">
-                     <widget class="QSpinBox" name="P6SPINX">
+                    <item row="2" column="1">
+                     <widget class="QSpinBox" name="P2SPINX">
                       <property name="enabled">
                        <bool>true</bool>
                       </property>
@@ -499,60 +486,47 @@
                       </property>
                      </widget>
                     </item>
-                    <item row="5" column="2">
-                     <widget class="QSpinBox" name="P5SPINY">
-                      <property name="enabled">
-                       <bool>true</bool>
+                    <item row="1" column="0">
+                     <widget class="QPushButton" name="P1">
+                      <property name="maximumSize">
+                       <size>
+                        <width>47</width>
+                        <height>16777215</height>
+                       </size>
                       </property>
-                      <property name="buttonSymbols">
-                       <enum>QAbstractSpinBox::NoButtons</enum>
-                      </property>
-                      <property name="maximum">
-                       <number>999999999</number>
+                      <property name="text">
+                       <string>Tap1</string>
                       </property>
                      </widget>
                     </item>
-                    <item row="5" column="1">
-                     <widget class="QSpinBox" name="P5SPINX">
-                      <property name="enabled">
-                       <bool>true</bool>
+                    <item row="3" column="0">
+                     <widget class="QPushButton" name="P3">
+                      <property name="maximumSize">
+                       <size>
+                        <width>47</width>
+                        <height>16777215</height>
+                       </size>
                       </property>
-                      <property name="buttonSymbols">
-                       <enum>QAbstractSpinBox::NoButtons</enum>
+                      <property name="text">
+                       <string>Tap3</string>
                       </property>
-                      <property name="maximum">
-                       <number>999999999</number>
+                     </widget>
+                    </item>
+                    <item row="2" column="0">
+                     <widget class="QPushButton" name="P2">
+                      <property name="maximumSize">
+                       <size>
+                        <width>47</width>
+                        <height>16777215</height>
+                       </size>
+                      </property>
+                      <property name="text">
+                       <string>Tap2</string>
                       </property>
                      </widget>
                     </item>
                     <item row="1" column="2">
                      <widget class="QSpinBox" name="P1SPINY">
-                      <property name="enabled">
-                       <bool>true</bool>
-                      </property>
-                      <property name="buttonSymbols">
-                       <enum>QAbstractSpinBox::NoButtons</enum>
-                      </property>
-                      <property name="maximum">
-                       <number>999999999</number>
-                      </property>
-                     </widget>
-                    </item>
-                    <item row="6" column="2">
-                     <widget class="QSpinBox" name="P6SPINY">
-                      <property name="enabled">
-                       <bool>true</bool>
-                      </property>
-                      <property name="buttonSymbols">
-                       <enum>QAbstractSpinBox::NoButtons</enum>
-                      </property>
-                      <property name="maximum">
-                       <number>999999999</number>
-                      </property>
-                     </widget>
-                    </item>
-                    <item row="4" column="2">
-                     <widget class="QSpinBox" name="P4SPINY">
                       <property name="enabled">
                        <bool>true</bool>
                       </property>
@@ -577,8 +551,8 @@
                       </property>
                      </widget>
                     </item>
-                    <item row="3" column="1">
-                     <widget class="QSpinBox" name="P3SPINX">
+                    <item row="4" column="2">
+                     <widget class="QSpinBox" name="P4SPINY">
                       <property name="enabled">
                        <bool>true</bool>
                       </property>
@@ -603,6 +577,19 @@
                       </property>
                      </widget>
                     </item>
+                    <item row="3" column="1">
+                     <widget class="QSpinBox" name="P3SPINX">
+                      <property name="enabled">
+                       <bool>true</bool>
+                      </property>
+                      <property name="buttonSymbols">
+                       <enum>QAbstractSpinBox::NoButtons</enum>
+                      </property>
+                      <property name="maximum">
+                       <number>999999999</number>
+                      </property>
+                     </widget>
+                    </item>
                     <item row="3" column="2">
                      <widget class="QSpinBox" name="P3SPINY">
                       <property name="enabled">
@@ -616,68 +603,48 @@
                       </property>
                      </widget>
                     </item>
-                    <item row="2" column="0">
-                     <widget class="QPushButton" name="P2">
-                      <property name="maximumSize">
-                       <size>
-                        <width>47</width>
-                        <height>16777215</height>
-                       </size>
+                    <item row="0" column="1">
+                     <widget class="QLabel" name="XLable">
+                      <property name="sizePolicy">
+                       <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
+                        <horstretch>0</horstretch>
+                        <verstretch>0</verstretch>
+                       </sizepolicy>
                       </property>
                       <property name="text">
-                       <string>Tap2</string>
+                       <string>X</string>
+                      </property>
+                      <property name="alignment">
+                       <set>Qt::AlignCenter</set>
                       </property>
                      </widget>
                     </item>
-                    <item row="6" column="0">
-                     <widget class="QPushButton" name="P6">
-                      <property name="maximumSize">
-                       <size>
-                        <width>47</width>
-                        <height>16777215</height>
-                       </size>
+                    <item row="0" column="2">
+                     <widget class="QLabel" name="Ylable">
+                      <property name="sizePolicy">
+                       <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
+                        <horstretch>0</horstretch>
+                        <verstretch>0</verstretch>
+                       </sizepolicy>
                       </property>
                       <property name="text">
-                       <string>Tap6</string>
+                       <string>Y</string>
+                      </property>
+                      <property name="alignment">
+                       <set>Qt::AlignCenter</set>
                       </property>
                      </widget>
                     </item>
-                    <item row="1" column="0">
-                     <widget class="QPushButton" name="P1">
-                      <property name="maximumSize">
-                       <size>
-                        <width>47</width>
-                        <height>16777215</height>
-                       </size>
+                    <item row="0" column="0">
+                     <widget class="QLabel" name="Changelable">
+                      <property name="sizePolicy">
+                       <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
+                        <horstretch>0</horstretch>
+                        <verstretch>0</verstretch>
+                       </sizepolicy>
                       </property>
                       <property name="text">
-                       <string>Tap1</string>
-                      </property>
-                     </widget>
-                    </item>
-                    <item row="2" column="1">
-                     <widget class="QSpinBox" name="P2SPINX">
-                      <property name="enabled">
-                       <bool>true</bool>
-                      </property>
-                      <property name="buttonSymbols">
-                       <enum>QAbstractSpinBox::NoButtons</enum>
-                      </property>
-                      <property name="maximum">
-                       <number>999999999</number>
-                      </property>
-                     </widget>
-                    </item>
-                    <item row="3" column="0">
-                     <widget class="QPushButton" name="P3">
-                      <property name="maximumSize">
-                       <size>
-                        <width>47</width>
-                        <height>16777215</height>
-                       </size>
-                      </property>
-                      <property name="text">
-                       <string>Tap3</string>
+                       <string>點擊更改</string>
                       </property>
                      </widget>
                     </item>
@@ -691,27 +658,6 @@
                       </property>
                       <property name="text">
                        <string>Tap4</string>
-                      </property>
-                     </widget>
-                    </item>
-                    <item row="0" column="1">
-                     <widget class="QLabel" name="XLable">
-                      <property name="text">
-                       <string>X</string>
-                      </property>
-                     </widget>
-                    </item>
-                    <item row="0" column="2">
-                     <widget class="QLabel" name="Ylable">
-                      <property name="text">
-                       <string>Y</string>
-                      </property>
-                     </widget>
-                    </item>
-                    <item row="0" column="0">
-                     <widget class="QLabel" name="Changelable">
-                      <property name="text">
-                       <string>點擊更改</string>
                       </property>
                      </widget>
                     </item>
@@ -876,7 +822,7 @@ p, li { white-space: pre-wrap; }
                </font>
               </property>
               <property name="text">
-               <string>星爆螞蟻礦工 V0.1.0</string>
+               <string>星爆螞蟻礦工 V0.1.1</string>
               </property>
               <property name="alignment">
                <set>Qt::AlignCenter</set>
@@ -898,7 +844,7 @@ p, li { white-space: pre-wrap; }
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>607</width>
+     <width>511</width>
      <height>21</height>
     </rect>
    </property>
