@@ -37,7 +37,18 @@ class RunFunction:
             x = GetPicFunction()
             try:
                 a,b = x.getpoc()
-                pyautogui.click(a+100,b+100)
+                X1 = Fun.P1X - a
+                X2 = Fun.P2X - a
+                X3 = Fun.P3X - a
+                X4 = Fun.P4X - a
+                X5 = Fun.P5X - a
+                X6 = Fun.P6X - a
+                Y1 = Fun.P1Y - b
+                Y2 = Fun.P2Y - b
+                Y3 = Fun.P3Y - b
+                Y4 = Fun.P4Y - b
+                Y5 = Fun.P5Y - b
+                Y6 = Fun.P6Y - b
             except:
                 Fun.RunFlag = False
                 NoFrame = True
@@ -49,13 +60,21 @@ class RunFunction:
                 def Digloop():
                     while Fun.StopFunction == False:
                         try:
-                            for i in range (1,10):
-                                if i == 1:#ctrl
+                            for i in range (1,9):
+                                if i == 1 or i == 6:#ctrl
                                     pyautogui.hotkey('ctrl')
-                                elif i == 2:#Down
-                                    pyautogui.hotkey('down')
-                                elif i == 3:#mouse click
-                                    pyautogui.click(a+100,b+100)
+                                elif i == 2:#mouse click
+                                    pyautogui.click(X1,Y1)
+                                elif i == 3:
+                                    pyautogui.click(X2,Y2)
+                                elif i == 4:
+                                    pyautogui.click(X3,Y3)
+                                elif i == 5:
+                                    pyautogui.click(X4,Y4)
+                                elif i == 7:
+                                    pyautogui.click(X5,Y5)
+                                elif i == 8:
+                                    pyautogui.click(X6,Y6)
 
                                 if Fun.StopFunction:
                                     Fun.RunFlag = False
@@ -63,6 +82,7 @@ class RunFunction:
                                 if Fun.StepDelay != 0:
                                     Delay = Fuc.StepDelay/1000
                                     time.sleep(Delay)
+
                             if Fun.StopFunction:
                                 Fun.RunFlag = False
                                 break
