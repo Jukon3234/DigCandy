@@ -22,6 +22,7 @@ import os
 import pyautogui as pag
 import cv2
 import keyboard
+from pynput.mouse import Listener
 
 class MainPageWindow(QtWidgets.QMainWindow,Ui_GBF_MAIN):
     chooseSignal = pyqtSignal(str)
@@ -53,7 +54,23 @@ class MainPageWindow(QtWidgets.QMainWindow,Ui_GBF_MAIN):
         self.RoundspinBox.setValue(savedata['Delay']['RoundDelay'])
         self.stepspinBox.setValue(savedata['Delay']['StepDelay'])
         self.Times_spinBox_2.setValue(savedata['function']['FightCount'])
+
+        self.P1SPINX.setValue(savedata['Point']['P1X'])
+        self.P2SPINX.setValue(savedata['Point']['P2X'])
+        self.P3SPINX.setValue(savedata['Point']['P3X'])
+        self.P4SPINX.setValue(savedata['Point']['P4X'])
+        self.P5SPINX.setValue(savedata['Point']['P5X'])
+        self.P6SPINX.setValue(savedata['Point']['P6X'])
+
+        self.P1SPINY.setValue(savedata['Point']['P1Y'])
+        self.P2SPINY.setValue(savedata['Point']['P2Y'])
+        self.P3SPINY.setValue(savedata['Point']['P3Y'])
+        self.P4SPINY.setValue(savedata['Point']['P4Y'])
+        self.P5SPINY.setValue(savedata['Point']['P5Y'])
+        self.P6SPINY.setValue(savedata['Point']['P6Y'])
+
         self.SaveText.setText(" ")
+        self.setMouseTracking(True)
 
 
 
@@ -70,6 +87,14 @@ class MainPageWindow(QtWidgets.QMainWindow,Ui_GBF_MAIN):
         keyboard.add_hotkey('F2', self.on_hotkey_triggered)
         keyboard.add_hotkey('Esc', self.on_hotkey_Stop)
         #self.DebugButton.clicked.connect(self.showDialog)
+        self.P1.clicked.connect(self.showDialog)
+        self.P2.clicked.connect(self.showDialog)
+        self.P3.clicked.connect(self.showDialog)
+        self.P4.clicked.connect(self.showDialog)
+        self.P5.clicked.connect(self.showDialog)
+        self.P6.clicked.connect(self.showDialog)
+    
+    
     
     def showDialog(self):#按鈕function
         sender = self.sender()
@@ -95,6 +120,68 @@ class MainPageWindow(QtWidgets.QMainWindow,Ui_GBF_MAIN):
             self.SettingDelay()
         elif sender == self.RoundspinBox:
             self.SettingDelay()
+        elif sender == self.P1:
+            def on_click(x, y, button, pressed):
+                if pressed:
+                    Fun.P1X,Fun.P1Y = x, y                                        
+                    listener.stop()                
+            listener = Listener(on_click = on_click)
+            listener.start()
+            listener.join()
+            self.P1SPINX.setValue(Fun.P1X)
+            self.P1SPINY.setValue(Fun.P1Y)
+        elif sender == self.P2:
+            def on_click(x, y, button, pressed):
+                if pressed:
+                    Fun.P2X,Fun.P2Y = x, y                    
+                    listener.stop()                
+            listener = Listener(on_click = on_click)
+            listener.start()
+            listener.join()
+            self.P2SPINX.setValue(Fun.P2X)
+            self.P2SPINY.setValue(Fun.P2Y)
+        elif sender == self.P3:
+            def on_click(x, y, button, pressed):
+                if pressed:
+                    Fun.P3X,Fun.P3Y = x, y
+                    listener.stop()                
+            listener = Listener(on_click = on_click)
+            listener.start()
+            listener.join()
+            self.P3SPINX.setValue(Fun.P3X)
+            self.P3SPINY.setValue(Fun.P3Y)
+        elif sender == self.P4:
+            def on_click(x, y, button, pressed):
+                if pressed:
+                    Fun.P4X,Fun.P4Y = x, y                    
+                    listener.stop()                
+            listener = Listener(on_click = on_click)            
+            listener.start()
+            listener.join()
+            self.P4SPINX.setValue(Fun.P4X)
+            self.P4SPINY.setValue(Fun.P4Y)
+        elif sender == self.P5:
+            def on_click(x, y, button, pressed):
+                if pressed:
+                    Fun.P5X,Fun.P5Y = x, y                                       
+                    listener.stop()                
+            listener = Listener(on_click = on_click)
+            listener.start()
+            listener.join()
+            self.P5SPINX.setValue(Fun.P5X)
+            self.P5SPINY.setValue(Fun.P5Y) 
+        elif sender == self.P6:
+            def on_click(x, y, button, pressed):
+                if pressed:
+                    Fun.P6X,Fun.P6Y = x, y                    
+                    listener.stop()                
+            listener = Listener(on_click = on_click)
+            listener.start()
+            listener.join()
+            self.P6SPINX.setValue(Fun.P6X)
+            self.P6SPINY.setValue(Fun.P6Y)
+            
+                        
         #elif sender == self.DebugButton:
         #   if Fun.DCBOT_EN == True:
         #       DET = GetPicFunction()
@@ -141,7 +228,7 @@ class MainPageWindow(QtWidgets.QMainWindow,Ui_GBF_MAIN):
         Savedata['function'] = {'FightCount': Fun.Function1FightCount}
         Savedata['Bot'] = {'TOKEN': Fun.DCBOT_Token,'Channal_ID': Fun.DCBOT_ChannalID,'Enabled' : Fun.DCBOT_EN}
         Savedata['Delay']={'StepDelay': Fun.StepDelay, 'RoundDelay': Fun.RoundDelay}
-
+        Savedata['Point'] = {'P1X': Fun.P1X,'P1Y': Fun.P1Y,'P2X': Fun.P2X, 'P2Y': Fun.P2Y,'P3X' : Fun.P3X, 'P3Y' : Fun.P3Y, 'P4X' : Fun.P4X, 'P4Y' : Fun.P4Y, 'P5X' : Fun.P5X, 'P5Y' : Fun.P5Y ,'P6X' : Fun.P6X, 'P6Y' : Fun.P6Y}
         with open('systemdata/datasave/data.json', 'w') as datafile:
             json.dump(Savedata,datafile)
         self.SaveText.setText("set成功")

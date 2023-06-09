@@ -20,7 +20,7 @@ class MainWindow(QWidget):
         self.setWindowTitle('螞蟻人 V0.0.1')
 
     def initMainUI(self):
-        self.resize(425,340)
+        self.resize(600,400)
         self.layout = QGridLayout()
         self.setLayout(self.layout)
         
@@ -47,7 +47,7 @@ class MainWindow(QWidget):
             #self.Stack.setCurrentIndex(1)
             self.CallHelpUi.show()
         elif msg == 'change':
-            self.resize(425,340)
+            self.resize(600,400)
         elif msg == 'setting':
             self.CallSettingUI.show()
         #if msg == 'Hide':
