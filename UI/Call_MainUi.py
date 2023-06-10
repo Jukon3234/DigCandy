@@ -63,8 +63,10 @@ class MainPageWindow(QtWidgets.QMainWindow,Ui_GBF_MAIN):
         Fun.P3X = savedata['Point']['P3X']
         self.P4SPINX.setValue(savedata['Point']['P4X'])
         Fun.P4X = savedata['Point']['P4X']
-        self.P4SPINX.setValue(savedata['Point']['P4X'])
-        Fun.P4X = savedata['Point']['P4X']
+        self.P5SPINX.setValue(savedata['Point']['P5X'])
+        Fun.P5X = savedata['Point']['P5X']
+        self.P6SPINX.setValue(savedata['Point']['P6X'])
+        Fun.P6X = savedata['Point']['P6X']
 
         self.P1SPINY.setValue(savedata['Point']['P1Y'])
         Fun.P1Y = savedata['Point']['P1Y']
@@ -74,6 +76,23 @@ class MainPageWindow(QtWidgets.QMainWindow,Ui_GBF_MAIN):
         Fun.P3Y = savedata['Point']['P3Y']
         self.P4SPINY.setValue(savedata['Point']['P4Y'])
         Fun.P4Y = savedata['Point']['P4Y']
+        self.P5SPINY.setValue(savedata['Point']['P5Y'])
+        Fun.P5Y = savedata['Point']['P5Y']
+        self.P6SPINY.setValue(savedata['Point']['P6Y'])
+        Fun.P6Y = savedata['Point']['P6Y']
+
+        self.stepdelayran.setValue(savedata['Delay']['stepdelayRandom'])
+        Fun.stepdelayRandom = savedata['Delay']['stepdelayRandom']
+        Fun.NstepdelayRandom = self.setobset(Fun.stepdelayRandom)
+        self.Rounddelayran.setValue(savedata['Delay']['RounddelayRandom'])
+        Fun.RounddelayRandom = savedata['Delay']['RounddelayRandom']
+        Fun.NRounddelayRandom = self.setobset(Fun.RounddelayRandom)
+        self.RandomXSpin.setValue(savedata['Point']['RandomXSpin'])
+        Fun.RandomX = savedata['Point']['RandomXSpin']
+        Fun.NRandomX = self.setobset(Fun.RandomX)
+        self.RandomYSpin.setValue(savedata['Point']['RandomYSpin'])
+        Fun.RandomX = savedata['Point']['RandomXSpin']
+        Fun.NRandomX = self.setobset(Fun.RandomX)
 
         self.PageTitle.setText(Fun.version)
 
@@ -259,7 +278,7 @@ class MainPageWindow(QtWidgets.QMainWindow,Ui_GBF_MAIN):
         Savedata['function'] = {'FightCount': Fun.Function1FightCount}
         Savedata['Bot'] = {'TOKEN': Fun.DCBOT_Token,'Channal_ID': Fun.DCBOT_ChannalID,'Enabled' : Fun.DCBOT_EN}
         Savedata['Delay']={'StepDelay': Fun.StepDelay, 'RoundDelay': Fun.RoundDelay,'stepdelayRandom': Fun.stepdelayRandom,'RounddelayRandom': Fun.RounddelayRandom}
-        Savedata['Point'] = {'P1X': Fun.P1X,'P1Y': Fun.P1Y,'P2X': Fun.P2X, 'P2Y': Fun.P2Y,'P3X' : Fun.P3X, 'P3Y' : Fun.P3Y, 'P4X' : Fun.P4X, 'P4Y' : Fun.P4Y,'P5X' : Fun.P5X, 'P5Y' : Fun.P5Y, 'P6X' : Fun.P6X, 'P6Y' : Fun.P6Y}
+        Savedata['Point'] = {'P1X': Fun.P1X,'P1Y': Fun.P1Y,'P2X': Fun.P2X, 'P2Y': Fun.P2Y,'P3X' : Fun.P3X, 'P3Y' : Fun.P3Y, 'P4X' : Fun.P4X, 'P4Y' : Fun.P4Y,'P5X' : Fun.P5X, 'P5Y' : Fun.P5Y, 'P6X' : Fun.P6X, 'P6Y' : Fun.P6Y ,'RandomXSpin' : Fun.RandomX,'RandomYSpin' : Fun.RandomY}
         with open('systemdata/datasave/data.json', 'w') as datafile:
             json.dump(Savedata,datafile)
         self.SaveText.setText("set成功")

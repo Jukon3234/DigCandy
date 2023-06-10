@@ -51,13 +51,13 @@ class RunFunction:
                                 Fun.RunFlag = False
                                 break
                             if Fun.StepDelay != 0:
-                                Delay = Fun.StepDelay/1000 + random_DelayStep
+                                Delay = Fun.StepDelay/1000 + random_DelayStep/1000
                                 time.sleep(Delay)
                         if Fun.StopFunction:
                             Fun.RunFlag = False
                             break
                         if Fun.RoundDelay != 0:
-                            RDelay = Fun.RoundDelay/1000 + random_DelayRound
+                            RDelay = Fun.RoundDelay/1000 + random_DelayRound/1000
                             time.sleep(RDelay)
                         
             else:
@@ -86,13 +86,13 @@ class RunFunction:
                                 Fun.RunFlag = False
                                 break
                             if Fun.StepDelay != 0:
-                                Delay = Fun.StepDelay/1000 + random_DelayStep
+                                Delay = Fun.StepDelay/1000 + random_DelayStep/1000
                                 time.sleep(Delay)
                         if Fun.StopFunction:
                             Fun.RunFlag = False
                             break
                         if Fun.RoundDelay != 0:
-                            RDelay = Fun.RoundDelay/1000 + random_DelayRound
+                            RDelay = Fun.RoundDelay/1000 + random_DelayRound/1000
                             time.sleep(RDelay)
                     Fun.RunFlag = False
         
