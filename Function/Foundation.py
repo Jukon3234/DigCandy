@@ -29,8 +29,10 @@ NstepdelayRandom = 0
 RounddelayRandom = 0
 NRounddelayRandom = 0
 BroswerText = " "
-HTML_Text = "https://game.granbluefantasy.jp/#top"
 WindowsHandle = 0
+CurmoveTime = 0
+CurmoveTimeRan = 0
+NCurmoveTimeRan = 0
 
 RunFlag = False
 StopFunction = False

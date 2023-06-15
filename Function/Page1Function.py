@@ -21,6 +21,14 @@ class RunFunction:
         print("TypeSelect: ", Fun.TypeSelect)
         print("RunFlag: ", Fun.RunFlag)
     #====================================function
+    def curmv(self,x,y):
+        random_Curmove = random.randint(Fun.NCurmoveTimeRan,Fun.CurmoveTimeRan)
+        CurTime=(Fun.CurmoveTime/1000)+ random_Curmove/1000
+        print("CurTime",CurTime)
+        pyautogui.moveTo(x, y, duration = CurTime)
+        pyautogui.mouseDown(x, y, button = 'left')
+        pyautogui.mouseUp(x, y, button = 'left')    
+
     def RunFGscrept(self):
         if Fun.RunFlag == False:
             Fun.RunFlag = True
@@ -34,19 +42,33 @@ class RunFunction:
                             if Fun.RandomX >> 0 or Fun.RandomY >> 0:
                                 random_intX = random.randint(Fun.NRandomX,Fun.RandomX)
                                 random_intY = random.randint(Fun.NRandomY,Fun.RandomY)
-                                
+                            else:
+                                random_intX = 0
+                                random_intY = 0
                             if i == 1:
-                                pyautogui.click(Fun.P1X + random_intX,Fun.P1Y + random_intY)
-                            elif i == 2:
-                                pyautogui.click(Fun.P2X + random_intX,Fun.P2Y + random_intY)
+                                curmoveX=Fun.P1X + random_intX
+                                curmoveY=Fun.P1Y + random_intY
+                                self.curmv(curmoveX,curmoveY)
+                            elif i == 2:#mouse click
+                                curmoveX=Fun.P2X + random_intX
+                                curmoveY=Fun.P2Y + random_intY
+                                self.curmv(curmoveX,curmoveY)
                             elif i == 3:
-                                pyautogui.click(Fun.P3X + random_intX,Fun.P3Y + random_intY)
+                                curmoveX=Fun.P3X + random_intX
+                                curmoveY=Fun.P3Y + random_intY
+                                self.curmv(curmoveX,curmoveY)
                             elif i == 4:
-                                pyautogui.click(Fun.P4X + random_intX,Fun.P4Y + random_intY)
+                                curmoveX=Fun.P4X + random_intX
+                                curmoveY=Fun.P4Y + random_intY
+                                self.curmv(curmoveX,curmoveY)
                             elif i == 5:
-                                pyautogui.click(Fun.P5X + random_intX,Fun.P5Y + random_intY)
+                                curmoveX=Fun.P5X + random_intX
+                                curmoveY=Fun.P5Y + random_intY
+                                self.curmv(curmoveX,curmoveY)
                             elif i == 6:
-                                pyautogui.click(Fun.P6X + random_intX,Fun.P6Y + random_intY)
+                                curmoveX=Fun.P6X + random_intX
+                                curmoveY=Fun.P6Y + random_intY
+                                self.curmv(curmoveX,curmoveY)
                             if Fun.StopFunction:
                                 Fun.RunFlag = False
                                 break
@@ -58,8 +80,7 @@ class RunFunction:
                             break
                         if Fun.RoundDelay != 0:
                             RDelay = Fun.RoundDelay/1000 + random_DelayRound/1000
-                            time.sleep(RDelay)
-                        
+                            time.sleep(RDelay)                        
             else:
                 def Digloop():
                     for i in range(Fun.Function1FightCount):
@@ -69,19 +90,33 @@ class RunFunction:
                             if Fun.RandomX >> 0 or Fun.RandomY >> 0:
                                 random_intX = random.randint(Fun.NRandomX,Fun.RandomX)
                                 random_intY = random.randint(Fun.NRandomY,Fun.RandomY)
-                                
+                            else:
+                                random_intX = 0
+                                random_intY = 0
                             if i == 1:
-                                pyautogui.click(Fun.P1X + random_intX,Fun.P1Y + random_intY)
+                                curmoveX=Fun.P1X + random_intX
+                                curmoveY=Fun.P1Y + random_intY
+                                self.curmv(curmoveX,curmoveY)
                             elif i == 2:#mouse click
-                                pyautogui.click(Fun.P2X + random_intX,Fun.P2Y + random_intY)
+                                curmoveX=Fun.P2X + random_intX
+                                curmoveY=Fun.P2Y + random_intY
+                                self.curmv(curmoveX,curmoveY)
                             elif i == 3:
-                                pyautogui.click(Fun.P3X + random_intX,Fun.P3Y + random_intY)
+                                curmoveX=Fun.P3X + random_intX
+                                curmoveY=Fun.P3Y + random_intY
+                                self.curmv(curmoveX,curmoveY)
                             elif i == 4:
-                                pyautogui.click(Fun.P4X + random_intX,Fun.P4Y + random_intY)
+                                curmoveX=Fun.P4X + random_intX
+                                curmoveY=Fun.P4Y + random_intY
+                                self.curmv(curmoveX,curmoveY)
                             elif i == 5:
-                                pyautogui.click(Fun.P5X + random_intX,Fun.P5Y + random_intY)
+                                curmoveX=Fun.P5X + random_intX
+                                curmoveY=Fun.P5Y + random_intY
+                                self.curmv(curmoveX,curmoveY)
                             elif i == 6:
-                                pyautogui.click(Fun.P6X + random_intX,Fun.P6Y + random_intY)
+                                curmoveX=Fun.P6X + random_intX
+                                curmoveY=Fun.P6Y + random_intY
+                                self.curmv(curmoveX,curmoveY)
                             if Fun.StopFunction:
                                 Fun.RunFlag = False
                                 break

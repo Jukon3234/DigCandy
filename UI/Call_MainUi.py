@@ -53,6 +53,7 @@ class MainPageWindow(QtWidgets.QMainWindow,Ui_GBF_MAIN):
         Fun.DCBOT_ChannalID = savedata['Bot']['Channal_ID']
         self.RoundspinBox.setValue(savedata['Delay']['RoundDelay'])
         self.stepspinBox.setValue(savedata['Delay']['StepDelay'])
+        self.CurMoveTime.setValue(savedata['Delay']['CurMoveTime'])
         self.Times_spinBox_2.setValue(savedata['function']['FightCount'])
 
         self.P1SPINX.setValue(savedata['Point']['P1X'])
@@ -91,8 +92,12 @@ class MainPageWindow(QtWidgets.QMainWindow,Ui_GBF_MAIN):
         Fun.RandomX = savedata['Point']['RandomXSpin']
         Fun.NRandomX = self.setobset(Fun.RandomX)
         self.RandomYSpin.setValue(savedata['Point']['RandomYSpin'])
-        Fun.RandomX = savedata['Point']['RandomXSpin']
-        Fun.NRandomX = self.setobset(Fun.RandomX)
+        Fun.RandomY = savedata['Point']['RandomYSpin']
+        Fun.NRandomY = self.setobset(Fun.RandomY)
+
+        self.CurMoveTimeRan.setValue(savedata['Delay']['CurmoveTimeRan'])
+        Fun.CurMoveTimeRan = savedata['Delay']['CurmoveTimeRan']
+        Fun.NCurMoveTimeRan = self.setobset(Fun.CurMoveTimeRan)
 
         self.PageTitle.setText(Fun.version)
 
@@ -110,6 +115,8 @@ class MainPageWindow(QtWidgets.QMainWindow,Ui_GBF_MAIN):
         self.Times_spinBox_2.valueChanged.connect(self.showDialog)
         self.stepspinBox.valueChanged.connect(self.showDialog)
         self.RoundspinBox.valueChanged.connect(self.showDialog)
+        self.CurMoveTime.valueChanged.connect(self.showDialog)
+        self.CurMoveTimeRan.valueChanged.connect(self.showDialog)
         self.RandomXSpin.valueChanged.connect(self.showDialog)
         self.RandomYSpin.valueChanged.connect(self.showDialog)
         self.stepdelayran.valueChanged.connect(self.showDialog)
@@ -151,6 +158,8 @@ class MainPageWindow(QtWidgets.QMainWindow,Ui_GBF_MAIN):
         elif sender == self.stepspinBox:
             self.SettingDelay()
         elif sender == self.RoundspinBox:
+            self.SettingDelay()
+        elif sender == self.CurMoveTime:
             self.SettingDelay()
         elif sender == self.P1:
             def on_click(x, y, button, pressed):
@@ -224,6 +233,9 @@ class MainPageWindow(QtWidgets.QMainWindow,Ui_GBF_MAIN):
         elif sender == self.Rounddelayran:
             Fun.RounddelayRandom = self.Rounddelayran.value()
             Fun.NRounddelayRandom = self.setobset(Fun.RounddelayRandom)
+        elif sender == self.CurMoveTimeRan:
+            Fun.CurmoveTimeRan = self.CurMoveTimeRan.value()
+            Fun.NCurmoveTimeRan = self.setobset(Fun.CurmoveTimeRan)
                         
         #elif sender == self.DebugButton:
         #   if Fun.DCBOT_EN == True:
@@ -271,13 +283,14 @@ class MainPageWindow(QtWidgets.QMainWindow,Ui_GBF_MAIN):
     def SettingDelay(self):
         Fun.StepDelay = self.stepspinBox.value()
         Fun.RoundDelay = self.RoundspinBox.value()
+        Fun.CurmoveTime = self.CurMoveTime.value()
 
     def SaveFile(self):
         Fun.Function1FightCount = self.Times_spinBox_2.value()
         Savedata = {}
         Savedata['function'] = {'FightCount': Fun.Function1FightCount}
         Savedata['Bot'] = {'TOKEN': Fun.DCBOT_Token,'Channal_ID': Fun.DCBOT_ChannalID,'Enabled' : Fun.DCBOT_EN}
-        Savedata['Delay']={'StepDelay': Fun.StepDelay, 'RoundDelay': Fun.RoundDelay,'stepdelayRandom': Fun.stepdelayRandom,'RounddelayRandom': Fun.RounddelayRandom}
+        Savedata['Delay']={'StepDelay': Fun.StepDelay, 'RoundDelay': Fun.RoundDelay,'stepdelayRandom': Fun.stepdelayRandom,'RounddelayRandom': Fun.RounddelayRandom,'CurMoveTime': Fun.CurmoveTime,'CurmoveTimeRan': Fun.CurmoveTimeRan}
         Savedata['Point'] = {'P1X': Fun.P1X,'P1Y': Fun.P1Y,'P2X': Fun.P2X, 'P2Y': Fun.P2Y,'P3X' : Fun.P3X, 'P3Y' : Fun.P3Y, 'P4X' : Fun.P4X, 'P4Y' : Fun.P4Y,'P5X' : Fun.P5X, 'P5Y' : Fun.P5Y, 'P6X' : Fun.P6X, 'P6Y' : Fun.P6Y ,'RandomXSpin' : Fun.RandomX,'RandomYSpin' : Fun.RandomY}
         with open('systemdata/datasave/data.json', 'w') as datafile:
             json.dump(Savedata,datafile)
